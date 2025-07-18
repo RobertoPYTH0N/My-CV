@@ -1,0 +1,420 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{margin: 0%;  background-image:url("{% static 'background45.png' %}"); background-size: 100%; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;}
+        #divdesus{background-color: rgb(24, 24, 122); width: 100%; height: 2cm; margin: 0%; display: flex; flex-direction: row;}
+        #nrtelefon{font-size: large; align-content: center; color: white;}
+        #nrtelefon{margin-right: 9.5cm; margin-left: 7.7cm;}
+        #email{margin-left:9.5cm;}
+        #barasectiuni{display: flex; flex-direction: row; width: 100%; height: 1cm; background-color:  rgb(29, 28, 28);}
+        #despremine, #educatie, #profesional, #alteactivitati, #certificari, #skills{ color: white; width: 23% ; text-align: center; padding-top: 9px;}
+        #primasectiune{ height: 20cm; display: flex; justify-content: center;}
+        #pozasidescriere{background-color: rgb(29, 28, 28); position: absolute; width: 70%; height: 70%;top: 50%; transform: translateY(-50%); display: flex; flex-direction: row; margin-top: 3cm;}
+        #pozamea{padding: 1cm;}
+        #numesiprenume{color: white; font-size: xx-large; padding-top: 1cm;}
+        #student{color: white;}
+        #textlung{color: white; padding-bottom: 2cm; padding-right: 2cm; padding-top: 1cm; text-align: justify; text-indent: 1cm;}
+        #atreiasectiune {background-color: rgb(29, 28, 28); height: 11cm;  margin-top: 5cm}
+        #adouasectiune{background-color: rgb(29, 28, 28); height: 11cm;}
+        #axatimp{width: 100%; height: 1.5cm;position: relative;}
+        #educatie2{color: white; font-size: xx-large; padding-top: 10px; text-align: center; padding-bottom: 10px;}
+        .punct1{position: absolute; background-color: rgb(24, 24, 122); border-radius: 50%; height: 1cm; width: 1cm; margin-left: 12cm; transform: translateY(-140%); border-color: white; border-style: ridge;}
+        .punct2{position: absolute; background-color: rgb(24, 24, 122); border-radius: 50%; height: 1cm; width: 1cm; margin-left: 30cm;transform: translateY(-140%);  border-style: ridge;}
+        #casute{width: 40%; background-color: rgba(255, 255, 255, 0.458); border-radius: 40px; display: flex; flex-direction: row;}
+        #sectiuneacasutelor{display: flex; flex-direction: row; padding-bottom: 2cm; justify-content: space-around;}
+        #pozainstitutie{height: 7cm; padding: 0; width: 45%; border-top-left-radius: 40px; border-bottom-left-radius: 40px;}
+        #numeinstitutie{font-size: large; text-align: center; padding: 13px;}
+        #specializare{font-size: large;background-color: rgb(24, 24, 122) ; color: white; padding: 10px; width: 100%;}
+        #descriereinstitutie{text-align: justify; text-indent: 0.5cm; padding: 10px}
+        #imagine{width: 100%; height: 5cm; opacity: 50%;}
+        header{ position: sticky; top: 0%; z-index: 3;}
+        * {box-sizing:border-box}
+        .slideshow-container {max-width:max-content; position: relative; margin: auto;}
+        .mySlides {display: none;}
+        .prev, .next {cursor: pointer; position: absolute; top: 50%; width: auto; margin-top: -22px; padding: 16px; color: white; font-weight: bold; font-size: 18px; transition: 0.6s ease; border-radius: 0 3px 3px 0; user-select: none;}
+        .next {right: 0; border-radius: 3px 0 0 3px;}
+        .prev:hover, .next:hover {background-color: rgba(0,0,0,0.8);}
+        .numbertext {color: #f2f2f2;font-size: 12px;padding: 8px 12px;position: absolute;top: 0;}
+        .dot {cursor: pointer;height: 15px;width: 15px;margin: 0 2px;background-color: #bbb;border-radius: 50%;display: inline-block;transition: background-color 0.6s ease; margin-bottom: 2cm;}
+        .active, .dot:hover {background-color: #717171;}
+        .fade {animation-name: fade;animation-duration: 1.5s;}
+        @keyframes fade {from {opacity: .4} to {opacity: 1}}
+        #numebox{font-size: larger;}
+        #butoninchidere{font-size: large; align-self:last baseline;}
+        #activitate{width: 20cm; height: 9.30cm; margin-left: 1cm; margin-right: 1cm;  background-color: rgba(255, 255, 255, 0.458); display: flex; flex-direction: row;}
+        #insideslide{display: flex; flex-direction: row;}
+        #numeinstitutie2{font-size: x-large; text-align: center;}
+        #certificari2{display: flex; flex-direction: row;  color: white; width: 17% ; text-align: center; align-items: center; width: 100%;}
+        #certificat{height: 8cm; margin-left: 2cm; margin-right: 2cm;}
+        #acinceasectiune{display: flex; align-items: center; flex-direction: row; margin-top: 5cm; background-color: rgb(29, 28, 28)}
+        #apatrasectiune{height: 12cm; background-color: rgb(29, 28, 28);  margin-top: 5cm}
+        .punct1:hover, .punct2:hover {height: 1.2cm; width: 1.2cm;}
+        #despremine:hover, #educatie:hover, #profesional:hover, #alteactivitati:hover, #certificari:hover{background-color: white; color: black;}
+        #certificat:hover{height: 10cm;}
+        #divdejos{background-color: rgb(24, 24, 122); width: 100%; height: 2cm; margin: 0%; display: flex; align-items: center; justify-content: center; color: white; font-size: medium;}
+        #educatie3{color: white; font-size: xx-large; padding-top: 10px; text-align: center; padding-bottom: 10px; margin-left: 1cm;}
+        .fade-in-right { opacity: 0; transform: translateX(100px); transition: opacity 0.8s ease-out, transform 0.8s ease-out;}
+        .fade-in-right.show {opacity: 1; transform: translateX(0);}
+        #continuttext{width: 55%;}
+        .open-button {background-color:  rgb(24, 24, 122); color: white; padding: 16px 20px; border: none;cursor: pointer;opacity: 0.8;position: fixed;bottom: 23px;right: 28px; width: 250px;}
+        .form-popup {display: none;position: fixed;bottom: 23px;right: 15px;border: 3px solid #f1f1f1;z-index: 9;}
+        .form-container {max-width: 20cm;padding: 10px;background-color: white;}
+        .form-container input, #textarea{width: 100%; padding: 15px;margin: 5px 0 22px 0;border: none; background: #f1f1f1;}
+        .form-container input:focus,  #textarea:focus { background-color: #ddd; outline: none;}
+        .form-container .btn { background-color:  rgb(24, 24, 122); color: white; padding: 16px 20px; border: none; cursor: pointer; width: 100%; margin-bottom:10px; opacity: 0.8;}
+        .form-container .btn:hover, .open-button:hover { opacity: 1;}
+        #opentowork{color: white; align-self: center; margin-left: 25%;}
+</style>
+    </style>
+</head>
+<body>
+    <header>
+    <div id="divdesus">
+        <div id="nrtelefon">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <a href="https://www.facebook.com/share/169B2LtZHo/"  style="color: white; margin-right: 10px;"  class="fa fa-facebook"></a>
+            <a href="https://www.linkedin.com/in/robert-ra%C8%9B%C4%83-2229a8270?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" style="color: white; margin-right: 10px;" class="fa fa-linkedin"></a>
+        </div>
+        <img src="{% static 'logo1.png' %}" style="height: 2cm;" onclick="window.location.href = 'http://localhost:8004/';">
+        <button class="open-button" onclick="openForm()">Lasă-mi un mesaj</button>
+        <div id="opentowork">#OpenToWork</div>
+    </div>
+    <div id="barasectiuni">
+        <div id="despremine" onclick="scrolldivdespremine()">Despre Mine</div>
+        <div id="educatie" onclick="scrolldiveducatie()">Educație</div>
+        <div id="profesional" onclick="scrolldivprofesional()">Profesional</div>
+        <div id="alteactivitati" onclick="scrolldivactivitati()">Alte Activități</div>
+        <div id="certificari" onclick="scrolldivcertificari()">Certificări</div>
+    </div>
+    </header>
+
+    <div id="primasectiune">
+        <div class="form-popup" id="myForm">
+            <form action="mesaj-trimis" method="POST" class="form-container">
+              <h1>Lasă-mi un mesaj</h1>
+                
+                {% csrf_token %}
+                {{ form.email.label_tag }} {{ form.email }}
+                {{ form.mesaj.label_tag }} {{ form.mesaj }}
+                <input type="submit" value="Trimite Mesajul" class ="btn">
+                <button type="button" class="btn cancel" onclick="closeForm()">Închide Formularul</button>
+
+              <!-- <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Email" name="email" required>
+          
+              <label for="mesaj"><b>Mesaj</b></label><br>
+              <textarea placeholder="Mesaj" id="textarea" cols="40" rows="5" name="mesaj" required></textarea>
+          
+              <button type="submit" class="btn">Trimite</button>
+              <button type="button" class="btn cancel" onclick="closeForm()">Închide Formularul</button> -->
+            </form>
+          </div>
+        <div id="pozasidescriere" class="fade-in-right">
+            <img src="{% static 'Robert.png' %}" id="pozamea">
+            <div id="descriere">
+                <div id="numesiprenume">Rață Robert</div>
+                <div id="student">Student</div>
+                <div id="textlung">Bună! Mă numesc Rață Robert și pot spune că sunt o persoană deschisă atunci cand vine vorba de a învăța lucruri noi sau de a acumula diverse experiențe! Sunt o persoană glumeață, dar în același timp serioasă atunci când este vorba de a lucra/studia.Bună! Mă numesc Rață Robert și pot spune că sunt o persoană deschisă atunci cand vine vorba de a învăța lucruri noi sau de a acumula diverse experiențe! Sunt o persoană glumeață, dar în același timp serioasă atunci când este vorba de a lucra/studia.Bună! Mă numesc Rață Robert și pot spune că sunt o persoană deschisă atunci cand vine vorba de a învăța lucruri noi sau de a acumula diverse experiențe! Sunt o persoană glumeață, dar în același timp serioasă atunci când este vorba de a lucra/studia.Bună! Mă numesc Rață Robert și pot spune că sunt o persoană deschisă atunci cand vine vorba de a învăța lucruri noi sau de a acumula diverse experiențe! Sunt o persoană glumeață, dar în același timp serioasă atunci când este vorba de a lucra/studia.Bună! Mă numesc Rață Robert și pot spune că sunt o persoană deschisă atunci cand vine vorba de a învăța lucruri noi sau de a acumula diverse experiențe! Sunt o persoană glumeață, dar în același timp serioasă atunci când este vorba de a lucra/studia.Bună! Mă numesc Rață Robert și pot spune că sunt o persoană deschisă atunci cand vine vorba de a învăța lucruri noi sau de a acumula diverse experiențe! Sunt o persoană glumeață, dar în același timp serioasă atunci când este vorba de a lucra/studia.Bună! Mă numesc Rață Robert și pot spune că sunt o persoană deschisă atunci cand vine vorba de a învăța lucruri noi sau de a acumula diverse experiențe! Sunt o persoană glumeață, dar în același timp serioasă atunci când este vorba de a lucra/studia.</div>
+            </div>
+        </div>
+    </div>
+    <div id="adouasectiune">
+        <div id="educatie2">Educație</div>
+        <div id="axasipuncte">
+            <img src="{% static 'axatimp1.png' %}" id="axatimp">
+            <div class="punct1"> . </div>
+            <div class="punct2"> . </div>
+        </div>
+        <div id="sectiuneacasutelor">
+            <div id="casute" class="fade-in-right">
+                <img src="{% static 'CTDG.png' %}" id="pozainstitutie">
+                <div id="continuttext">
+                    <div id="numeinstitutie">Colegiul Tehnic ,,Dimitrie Ghika" Comănești</div>
+                    <div id="specializare">Specializare: Filologie</div>
+                    <div id="descriereinstitutie">Pe parcursul anilor de studiu am avut ocazia să desfășor mai multe activtăți care m-au ajutat să îmi descopăr anumite pasiuni. Printre acestea se numără: voluntariate, graphic design pentru promovarea instituției, organizare de evenimente etc.</div>
+                </div>
+            </div>
+            <div id="casute" class="fade-in-right">
+                <img src="{% static 'SNSPA.png' %}" id="pozainstitutie">
+                <div id="continuttext">
+                    <div id="numeinstitutie">SNSPA - Facultatea de Administrație Publică</div>
+                    <div id="specializare">Specializare: Administrație Publică</div>
+                    <div id="descriereinstitutie">Cariera de funcționar public reprezintă o dorință personală, lucru pentru care am ales Facultatea de Administrație Publică. Determinarea de a avea o astfel de meserie, m-a ajutat mult în procesul de formare, reușind să ajung șef de promoție în toate semestrele de până acum.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="atreiasectiune">
+        <div id="educatie2">Profesional</div>
+        <div id="axasipuncte">
+            <img src="{% static 'axatimp1.png' %}" id="axatimp">
+            <div class="punct1"> . </div>
+            <div class="punct2"> . </div>
+        </div>
+        <div id="sectiuneacasutelor">
+            <div id="casute" class="fade-in-right">
+                <img src="{% static 'HALFPRICE.png' %}" id="pozainstitutie">
+                <div id="continuttext">
+                    <div id="numeinstitutie">HalfPrice</div>
+                    <div id="specializare">Poziție: Consultant Vanzări</div>
+                    <div id="descriereinstitutie">Activitate variată din care am învățat mai multe despre lucrul cu oamenii. Abilități deprinse: comunicare eficientă, ascultare activă, persuasiune, empatie, merchandising, utilizarea caselor de marcat, gestionarea stocurilor, lucru în echipă, rezolvarea problemelor, adaptabilitate.</div>
+                </div>
+            </div>
+            <div id="casute" class="fade-in-right">
+                <img src="{% static 'PEEKCLOPPENBURG.png' %}" id="pozainstitutie">
+                <div id="continuttext">
+                    <div id="numeinstitutie">Peek & Cloppenburg</div>
+                    <div id="specializare">Poziție: Casier</div>
+                    <div id="descriereinstitutie">Experiență ce m-a ajutat să capăt și mai multă experiență legată de customer service. Abilități deprinse: atenție la detalii, utilizarea caselor de marcat și a sistemelor POS, gestionarea numerarului și a tranzacțiilor cu cardul, abilități de comunicare, rezolvarea problemelor, gestionarea reclamațiilor, relaționare, organizare, responsabilitate.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="apatrasectiune">
+        <div id ="educatie2">Activități</div>
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+              <div id="insideslide">
+                <div id="activitate">
+                    <img src="{% static 'programare.png' %}" style="width: 10cm";>
+                    <div id="despreativitate">
+                        <div id="numeinstitutie2" style="margin-left: 1cm;">Programare in Python</div>
+                        <div id="descriereinstitutie">Una din pasiunile recent descoperite este cea de a programa. Această călatorie a început în 2023 atunci când am ales să urmez un cues de programare în Python la Ateliere Ilbah. În urma acestora am reușit să obţin acreditarea de Programator Ajutor în Python, acordată de către Ministerul Educaţiei.
+                            
+                            Am continuat cu perfecţionarea skill-urilor la un curs care
+                            s-a desfăsut pe parcursul unui an la sediul Link Academy. În urma
+                            acestuia am intrat mai adânc în problematica programării orientată
+                            pe obiect, în prezent reușind să creez diverse programe/site-uri de la zero.
+                            În viitorul apropiat intenționez să obțin PCAP™ – Certified Associate Python Programmer de la Institutul Internațional de Python.</div>
+                    </div>
+                </div>
+                <div id="activitate">
+                    <img src="{% static 'practica.png' %}" style="width: 10cm";>
+                    <div id="despreativitate">
+                        <div id="numeinstitutie2">Stagiu de practica la Institutul Natțonal de Administrație</div>
+                        <div id="descriereinstitutie">În luna Martie 2025 am fost selectat pentru a participa la un stagiu complementar de practică în cadrul Institutului Național de Administrație. În cadrul acestui stagiu am desfășurat diverse activitați: back-office, organizare evenimente, graphic design, iar experința în sine m-a familiarizat și mai mult cu administrația publică românească.</div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mySlides fade">
+                <div id="insideslide">
+                    <div id="activitate">
+                        <img src="{% static 'legistica.png' %}" style="width: 10cm;">
+                        <div id="despreativitate">
+                            <div id="numeinstitutie2">Organizare Cerc de Legistică Formală</div>
+                            <div id="descriereinstitutie">Pe parcursul lunilor Noiembrie - Decembrie 2024 am avut ocazia de
+                                a face parte din echipa de organizare a Cercului Ştiințific
+                                Studenţesc de Legiatică Formală. În cadrul acestui proiect am avut atribuţii privind graphic
+                                design, desfășurare propriu-zisă a evenimentului și logistică.
+                                De asemenea, am participat în calitate de co-autor al unei
+                                lucrări știinţifice intitulate Principiul Bicameralismului".</div>
+                        </div>
+                    </div>
+                    <div id="activitate">
+                        <img src="{% static 'figuratie.png' %}" style="width: 10cm";>
+                        <div id="despreativitate">
+                            <div id="numeinstitutie2">Figurație</div>
+                            <div id="descriereinstitutie">Figuraţia în producția americană The Gray House" a fost una
+                                de neuitat. Aceasta mi-a schimbat percepţia totală asupra
+                                modului în care se desfășoară lucrurile pe set. Fiecare
+                                persoană, indiferent de rol, este foarte importantă pentru
+                                rezultatul finit ce se transpune într-o creație artistică.</div>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+         </div>
+          <br>
+       <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+          </div>
+
+
+
+    
+
+    </div>
+    <div id="acinceasectiune">
+      <div id="educatie3">Certificări</div>
+      <div id="certificari2">
+        <div id="certificare">
+            <div id="numecertificare">Certificat de Absolvire - Ajutor Programator</div>
+            <img src="{% static 'minister.png' %}" id="certificat" onclick="openFullscreen(this)">
+        </div>
+        <div id="certificare">
+            <div id="numecertificare">Certified Python Developer</div>
+            <img src="{% static 'certificatlink.png' %}" id="certificat" onclick="openFullscreen(this)">
+        </div>
+        <div id="certificare">
+            <div id="numecertificare">First Certificate in English - B2</div>
+            <img src="{% static 'cambridge.png' %}" id="certificat" onclick="openFullscreen(this)">
+        </div>
+      </div>
+    </div>
+    <div id="divdejos">© Roberto 2025. All rights reserved.</div>
+
+
+
+</body>
+<script>
+
+    let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  slideIndex++;
+    setTimeout(() => showSlides(slideIndex), 7000);}
+
+function scrolldivdespremine() {
+            window
+                .scrollTo(0, findPosition(document.getElementById("primasectiune")));
+        }
+        function findPosition(obj) {
+            let currenttop = 0;
+            if (obj.offsetParent) {
+                do {
+                    currenttop += obj.offsetTop;
+                } while ((obj = obj.offsetParent));
+                return [currenttop];
+            }
+        }
+
+        function scrolldiveducatie() {
+            window
+                .scrollTo(0, findPosition(document.getElementById("adouasectiune")));
+        }
+        function findPosition(obj) {
+            let currenttop = 0;
+            if (obj.offsetParent) {
+                do {
+                    currenttop += obj.offsetTop;
+                } while ((obj = obj.offsetParent));
+                return [currenttop];
+            }
+        }
+
+        function scrolldivprofesional() {
+            window
+                .scrollTo(0, findPosition(document.getElementById("atreiasectiune")));
+        }
+        function findPosition(obj) {
+            let currenttop = 0;
+            if (obj.offsetParent) {
+                do {
+                    currenttop += obj.offsetTop;
+                } while ((obj = obj.offsetParent));
+                return [currenttop];
+            }
+        }
+
+        function scrolldivactivitati() {
+            window
+                .scrollTo(0, findPosition(document.getElementById("apatrasectiune")));
+        }
+        function findPosition(obj) {
+            let currenttop = 0;
+            if (obj.offsetParent) {
+                do {
+                    currenttop += obj.offsetTop;
+                } while ((obj = obj.offsetParent));
+                return [currenttop];
+            }
+        }
+
+        function scrollogo() {
+            window
+                .scrollTo(0, findPosition(document.getElementById("primasectiune")));
+        }
+        function findPosition(obj) {
+            let currenttop = 0;
+            if (obj.offsetParent) {
+                do {
+                    currenttop += obj.offsetTop;
+                } while ((obj = obj.offsetParent));
+                return [currenttop];
+            }
+        }
+
+        function scrolldivcertificari() {
+            window
+                .scrollTo(0, findPosition(document.getElementById("acinceasectiune")));
+        }
+        function findPosition(obj) {
+            let currenttop = 0;
+            if (obj.offsetParent) {
+                do {
+                    currenttop += obj.offsetTop;
+                } while ((obj = obj.offsetParent));
+                return [currenttop];
+            }
+        }
+
+        function openFullscreen(img) {
+            if (img.requestFullscreen) {
+                img.requestFullscreen();
+            } else if (img.mozRequestFullScreen) { // Firefox
+                img.mozRequestFullScreen();
+            } else if (img.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                img.webkitRequestFullscreen();
+            } else if (img.msRequestFullscreen) { // IE/Edge
+                img.msRequestFullscreen();
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, { threshold: 0.2 }); // Adjust threshold for earlier/later activation
+
+    document.querySelectorAll(".fade-in-right").forEach(div => {
+        observer.observe(div);
+    });
+});
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+</html>
