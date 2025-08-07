@@ -14,8 +14,8 @@
         #barasectiuni{display: flex; flex-direction: row; width: 100%; height: 1cm; background-color:  rgb(29, 28, 28);}
         #despremine, #educatie, #profesional, #alteactivitati, #certificari, #skills{ color: white; width: 23% ; text-align: center; padding-top: 9px;}
         #primasectiune{ height: 20cm; display: flex; justify-content: center;}
-        #pozasidescriere{background-color: rgb(29, 28, 28); position: absolute; width: 70%; height: 70%;top: 50%; transform: translateY(-50%); display: flex; flex-direction: row; margin-top: 3cm;}
-        #pozamea{padding: 1cm;}
+        #pozasidescriere{background-color: rgb(29, 28, 28); position: absolute; width: 70%; height: 70%;top: 50%; transform: translateY(-50%); display: flex; flex-direction: row; margin-top: 3cm; height: fit-content}
+        #pozamea{padding: 1cm; height: 5cm;}
         #numesiprenume{color: white; font-size: xx-large; padding-top: 1cm;}
         #student{color: white;}
         #textlung{color: white; padding-bottom: 2cm; padding-right: 2cm; padding-top: 1cm; text-align: justify; text-indent: 1cm;}
@@ -103,23 +103,22 @@
                 {{ form.mesaj.label_tag }} {{ form.mesaj }}
                 <input type="submit" value="Trimite Mesajul" class ="btn">
                 <button type="button" class="btn cancel" onclick="closeForm()">Închide Formularul</button>
-
-              <!-- <label for="email"><b>Email</b></label>
-              <input type="text" placeholder="Email" name="email" required>
-          
-              <label for="mesaj"><b>Mesaj</b></label><br>
-              <textarea placeholder="Mesaj" id="textarea" cols="40" rows="5" name="mesaj" required></textarea>
-          
-              <button type="submit" class="btn">Trimite</button>
-              <button type="button" class="btn cancel" onclick="closeForm()">Închide Formularul</button> -->
             </form>
           </div>
         <div id="pozasidescriere" class="fade-in-right">
             <img src="{% static 'Robert.png' %}" id="pozamea">
             <div id="descriere">
                 <div id="numesiprenume">Rață Robert</div>
-                <div id="student">Student</div>
-                <div id="textlung">Bună! Mă numesc Rață Robert și pot spune că sunt o persoană deschisă atunci cand vine vorba de a învăța lucruri noi sau de a acumula diverse experiențe! Sunt o persoană glumeață, dar în același timp serioasă atunci când este vorba de a lucra/studia.Bună! Mă numesc Rață Robert și pot spune că sunt o persoană deschisă atunci cand vine vorba de a învăța lucruri noi sau de a acumula diverse experiențe! Sunt o persoană glumeață, dar în același timp serioasă atunci când este vorba de a lucra/studia.Bună! Mă numesc Rață Robert și pot spune că sunt o persoană deschisă atunci cand vine vorba de a învăța lucruri noi sau de a acumula diverse experiențe! Sunt o persoană glumeață, dar în același timp serioasă atunci când este vorba de a lucra/studia.Bună! Mă numesc Rață Robert și pot spune că sunt o persoană deschisă atunci cand vine vorba de a învăța lucruri noi sau de a acumula diverse experiențe! Sunt o persoană glumeață, dar în același timp serioasă atunci când este vorba de a lucra/studia.Bună! Mă numesc Rață Robert și pot spune că sunt o persoană deschisă atunci cand vine vorba de a învăța lucruri noi sau de a acumula diverse experiențe! Sunt o persoană glumeață, dar în același timp serioasă atunci când este vorba de a lucra/studia.Bună! Mă numesc Rață Robert și pot spune că sunt o persoană deschisă atunci cand vine vorba de a învăța lucruri noi sau de a acumula diverse experiențe! Sunt o persoană glumeață, dar în același timp serioasă atunci când este vorba de a lucra/studia.Bună! Mă numesc Rață Robert și pot spune că sunt o persoană deschisă atunci cand vine vorba de a învăța lucruri noi sau de a acumula diverse experiențe! Sunt o persoană glumeață, dar în același timp serioasă atunci când este vorba de a lucra/studia.</div>
+                <div id="student"></div>
+                <div id="textlung">I am looking forward to learn about the foundations of a successful career and achieving my goals through hard work. I graduated from the Faculty of Public Administration, where I had the honor of being valedictorian. During my studies, I involved myself in various extracurricular activities such as organizing conferences and events, participating in internships, volunteering, and other similar engagements.
+
+In my free time, I pursued other passions, such as programming. I currently hold a Python Programmer Certificate and plan to obtain the International Python Institute certification as well. I am working on building a portfolio that will soon be available on my GitHub page. So far, I have worked with the Django framework and used libraries such as Pandas and NumPy. I also have knowledge of MySQL, CSS, and JavaScript.<br>
+
+I am an open-minded person who is eager to learn new things, especially in the areas I am passionate about – Public Administration and IT.<br>
+Skills: teamwork, planning, problem-solving, computer skills.<br>
+Areas I’m working on to improve: multitasking, gaining more knowledge and practical experience.<BR>
+
+I am currently seeking a job in one of my fields of interest, but I am also open to exploring other areas to gain experience. I am particularly interested in pursuing a career in IT, a field I’ve begun to specialize in through applied courses and independent practice. Although I do not hold a degree in computer science, I have completed programming courses that provided me with a strong foundation in Python.</div>
             </div>
         </div>
     </div>

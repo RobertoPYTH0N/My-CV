@@ -7,4 +7,4 @@ class FormularMesaj(forms.ModelForm):
         fields = ['email', 'mesaj']
         widgets = {
             'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
-            'mesaj': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Mesaj', 'cols':"40", 'rows':"5"})}
+            'mesaj': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Message', 'cols':"40", 'rows':"5"})}

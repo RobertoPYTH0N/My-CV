@@ -1,3 +1,5 @@
+{% extends "base2.html" %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,11 +7,700 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    {% extends "base.html" %}
-    {% load static %}
-    
     {% block main %}
+<style>
+#pozasidescriere {
+    background-color: rgb(29, 28, 28);
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    margin: 1cm;
+    padding: 0.2cm;
+}
+
+#pozamea {
+    padding: 1cm;
+    height: 10cm;
+    align-self: center;
+}
+
+#numesiprenume {
+    color: white;
+    font-size: xx-large;
+}
+
+#student {
+    color: white;
+}
+
+#textlung, #textlung2, #textlung3, #textlung4, #textlung5, #textlung6 {
+    color: white;
+    text-align: justify;
+    text-indent: 1cm;
+    padding-top: 0.5cm;
+}
+
+#descriere {
+    padding-top: 0.5cm;
+    padding-bottom: 0.5cm;
+    padding-right: 1cm;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+#adouasectiune, #atreiasectiune {
+    background-color: rgb(29, 28, 28);
+    width: 100%;
+}
+
+#axatimp {
+    height: 1.2cm;
+    position: relative;
+    width: 100%;
+}
+
+#educatie2 {
+    color: white;
+    font-size: xx-large;
+    padding-top: 1cm;
+    text-align: center;
+    padding-bottom: 1cm;
+}
+
+.punct1 {
+    position: absolute;
+    background-color: rgb(24, 24, 122);
+    border-radius: 50%;
+    height: 1cm;
+    width: 1cm;
+    transform: translateY(-120%);
+    border-color: white;
+    border-style: ridge;
+    margin-left: 15%;
+}
+
+.punct2 {
+    position: absolute;
+    background-color: rgb(24, 24, 122);
+    border-radius: 50%;
+    height: 1cm;
+    width: 1cm;
+    transform: translateY(-120%);
+    border-style: ridge;
+    margin-left: 50%;
+}
+
+.punct3 {
+    position: absolute;
+    background-color: rgb(24, 24, 122);
+    border-radius: 50%;
+    height: 1cm;
+    width: 1cm;
+    transform: translateY(-120%);
+    border-style: ridge;
+    margin-left: 80%;
+}
+
+#casute {
+    background-color: rgba(255, 255, 255, 0.458);
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 9cm;
+}
+
+#sectiuneacasutelor {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 2cm;
+    justify-content: space-around;
+}
+
+#pozainstitutie {
+    height: 7cm;
+    padding: 0;
+    width: 100%;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+
+#numeinstitutie {
+    font-size: medium;
+    text-align: center;
+    padding: 13px;
+}
+
+#descriereinstitutie {
+    text-align: justify;
+    text-indent: 0.5cm;
+    padding: 10px;
+}
+
+#imagine {
+    height: 5cm;
+    opacity: 50%;
+}
+
+.punct1:hover,
+.punct2:hover,
+.punct3:hover {
+    height: 1.2cm;
+    width: 1.2cm;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.trigger {
+  background-color: rgb(24, 24, 122);
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: max-content;
+  margin-bottom: 20px;
+}
+
+.popup {
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 10px;
+  position: absolute;
+  top: 50px;
+  display: none;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  border-radius: 6px;
+  text-align: justify;
+}
+.popup2{
+  text-indent: 0.5cm;
+}
+
+#spatiugol {
+    height: 2cm;
+    background-color: transparent;
+}
+
+#certificari2 {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+}
+
+#certificat {
+    height: 8cm;
+    margin-right: 1.5cm;
+    margin-left: 1.5cm;
+}
+
+#acinceasectiune {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background-color: rgb(29, 28, 28);
+}
+
+
+#despremine:hover,
+#educatie:hover,
+#profesional:hover,
+#alteactivitati:hover,
+#certificari:hover {
+    background-color: white;
+    color: black;
+}
+
+#certificat:hover {
+    height: 10cm;
+}
+
+        .slideshow-container {
+  width: 1000px;
+  height: 500px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  background: #fff;
+  border-top-right-radius: 0%;
+  border-top-left-radius: 0%;
+  background-color: rgb(29, 28, 28);
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-image {
+  width: 70%;
+  height: 100%;
+}
+
+.slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.slide-text {
+  width: 30%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(29, 28, 28);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: white;
+  text-align: justify;
+  text-indent: 0.5cm;
+}
+
+.slide-text h2 {
+  margin-top: 0;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 12px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  font-size: 18px;
+  border-radius: 50%;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
+
+#activitati2{
+  color: white;
+  font-size: xx-large;
+  text-align: center; 
+  background-color: rgb(29, 28, 28); 
+  width: 977px; 
+  align-self: center; 
+  border-radius: 10px; 
+  border-bottom-right-radius: 0%;
+  border-bottom-left-radius: 0%;
+  padding: 0.3cm;
+}
+
+.language-skills table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  background-color: white;
+}
+
+.language-skills th {
+  background-color: rgb(24, 24, 122);
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+}
+
+.language-skills td {
+  background-color:  rgb(29, 28, 28);
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  border-bottom: 1px solid #000000;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.language-skills tbody tr:hover td {
+  background-color: white;
+  color: black;
+}
+
+#languages2{color: white;
+  font-size: xx-large;
+  background-color: rgb(29, 28, 28);
+  width: 100%; text-align: center;
+  padding: 0.3cm;
+}
+#diplomas2{color: white;
+  font-size: xx-large;
+  text-align: center;
+  padding: 0.3cm;
+}
+
+</style>
+<body>
+    <div id="pozasidescriere">
+        <img src="{% static 'mypic.png' %}" id="pozamea">
+        <div id="descriere">
+            <div id="numesiprenume">Rață Robert</div>
+            <div id="student">Student</div>
+            <div id="textlung">I am looking forward to learn about the foundations of a successful career and achieving my goals through hard work. I graduated from the Faculty of Public Administration, where I had the honor of being valedictorian. During my studies, I involved myself in various extracurricular activities such as organizing conferences and events, participating in internships, volunteering, and other similar engagements.</div>
+            <br>
+            <div id="textlung2">In my free time, I pursued other passions, such as programming. I currently hold a Python Programmer Certificate and plan to obtain the International Python Institute certification as well. I am working on building a portfolio that will soon be available on my GitHub page. So far, I have worked with the Django framework and used libraries such as Pandas and NumPy. I also have knowledge of MySQL, CSS, and JavaScript.</div>
+            <br>
+            <div id="textlung3">I am an open-minded person who is eager to learn new things, especially in the areas I am passionate about – Public Administration and IT.<br>
+            Skills: teamwork, planning, problem-solving, computer skills.<br>
+            Areas I’m working on to improve: multitasking, gaining more knowledge and practical experience.</div>
+            <br>
+            <div id="textlung6">I am currently seeking a job in one of my fields of interest, but I am also open to exploring other areas to gain experience. I am particularly interested in pursuing a career in IT, a field I’ve begun to specialize in through applied courses and independent practice. Although I do not hold a degree in computer science, I have completed programming courses that provided me with a strong foundation in Python.</div>
+        </div>
+    </div>
+    <div id="adouasectiune">
+        <div id="educatie2">Studies</div>
+        <div id="axasipuncte">
+            <img src="{% static 'axatimp1.png' %}" id="axatimp">
+            <div class="punct1">  </div>
+            <div class="punct2">  </div>
+            <div class="punct3">  </div>
+        </div>
+        <div id="sectiuneacasutelor">
+            <div id="casute" class="fade-in-right">
+                <img src="{% static 'CTDG.png' %}" id="pozainstitutie">
+                <div id="continuttext">
+                    <div id="numeinstitutie"> "Dimitrie Ghika" Technical College Comănești</div>
+                    <div class="container">
+                        <div class="popup" id="popup">Specialization: Philology</div>
+                        <div class="trigger" onclick="togglePopup(this)">Click for more details</div>
+                    </div>
+                </div>
+            </div>
+            <div id="casute" class="fade-in-right">
+                <img src="{% static 'SNSPA.png' %}" id="pozainstitutie">
+                <div id="continuttext">
+                    <div id="numeinstitutie">SNSPA - Faculty of Public Administration - Bachelors Degree</div>
+                </div>
+                <div class="container">
+                    <div class="popup" id="popup">Major: Administrative Sciences. <br> Valedictorian, with a cumulative GPA of 9.71 (on a 10-point scale).</div>
+                    <div class="trigger" onclick="togglePopup(this)">Click for more details</div>
+                </div>
+            </div>
+            <div id="casute" class="fade-in-right">
+                <img src="{% static 'SNSPA2.png' %}" id="pozainstitutie">
+                <div id="continuttext">
+                    <div id="numeinstitutie">SNSPA - Faculty of Public Administration - Masters Degree</div>
+                </div>
+                <div class="container">
+                    <div class="popup" id="popup">Ongoing.</div>
+                    <div class="trigger" onclick="togglePopup(this)">Click for more details</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="spatiugol"></div>
+    <div id="atreiasectiune">
+        <div id="educatie2">Work Experience</div>
+        <div id="axasipuncte">
+            <img src="{% static 'axatimp1.png' %}" id="axatimp">
+            <div class="punct1">  </div>
+            <div class="punct2">  </div>
+            <div class="punct3">  </div>
+        </div>
+        <div id="sectiuneacasutelor">
+            <div id="casute" class="fade-in-right">
+                <img src="{% static 'HALFPRICE.png' %}" id="pozainstitutie">
+                <div id="continuttext">
+                    <div id="numeinstitutie">HalfPrice</div>
+                    <div class="container">
+                        <div class="popup" id="popup">Position: Sales Assistant</div>
+                        <div class="trigger" onclick="togglePopup(this)">Click for more details</div>
+                    </div>
+                </div>
+            </div>
+            <div id="casute" class="fade-in-right">
+                <img src="{% static 'PEEKCLOPPENBURG.png' %}" id="pozainstitutie">
+                <div id="continuttext">
+                    <div id="numeinstitutie">Peek & Cloppenburg</div>
+                </div>
+                <div class="container">
+                    <div class="popup" id="popup">Position: Cashier</div>
+                    <div class="trigger" onclick="togglePopup(this)">Click for more details</div>
+                </div>
+            </div>
+            <div id="casute" class="fade-in-right">
+                <img src="{% static 'INA.png' %}" id="pozainstitutie">
+                <div id="continuttext">
+                    <div id="numeinstitutie">National Institute of Administration</div>
+                </div>
+                <div class="container">
+                    <div class="popup" id="popup">Position: Intern <br>
+                    <br>
+                    <div class="popup2" id="popup2">During March 2025, I completed a complementary internship at the National Institute of Administration. Throughout this internship, I was involved in various activities and expanded my knowledge about the romanian public administration and its practical realities. I had the opportunity to meet both the INA team and leaders of equivalent institutions from other Balkan countries.</div>
+                </div>
+                    <div class="trigger" onclick="togglePopup(this)">Click for more details</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div id="spatiugol"></div>
+    <div id ="activitati2">Other Activities and Hobbies</div>
+    <div class="slideshow-container">
+    <div class="slide active">
+        <div class="slide-content">
+            <div class="slide-image">
+                <img src="{% static 'slide1.png' %}" alt="Slide 1">
+            </div>
+      <div class="slide-text">
+        <h2>Programming</h2>
+        <p>My Python programming journey started in 2023 when i entered a completly new world through the course held by Ilbah Workshops. I found this this programming language captivating, so i continued with an intensive course of "AI & Python Development" held by Link Academy. After i've finished both of the courses, i managed to obtain two diplomas: "Python Junior Programmer" provided by Ministry of Education and "Certified Python Developer" provided by Link Academy. Besides Python, i also work with SQL databases, HTML, CSS and JavaScript.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-content">
+      <div class="slide-image">
+        <img src="{% static 'slide2.png' %}" alt="Slide 2">
+      </div>
+      <div class="slide-text">
+        <h2>Student Scientific Circle of Formal Legislation</h2>
+        <p>Between November 19 and December 15, 2024, I had the opportunity to organize an event dedicated to the students of the Faculty of Public Administration within SNSPA.
+My responsibilities included graphic design, logistics, event coordination, and promotion. Additionally, I presented a paper entitled "The Principle of Bicameralism."
+For more details about the project, please visit: https://www.facebook.com/share/1EsgnKdTcd/</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-content">
+      <div class="slide-image">
+        <img src="{% static 'slide3.png' %}" alt="Slide 3">
+      </div>
+      <div class="slide-text">
+        <h2>The Bucharest Workshop in Mainline Political Economy</h2>
+        <p>Between May 14–16, 2025, I had the opportunity to assist in organizing "The Bucharest Workshop in Mainline Political Economy," which brought together professors and researchers from various European and North American universities.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-content">
+      <div class="slide-image">
+            <img src="{% static 'slide4.png' %}" alt="Slide 4">
+      </div>
+      <div class="slide-text">
+        <h2>"Students for an Open Digital Governance" Hackathon</h2>
+        <p>On May 20, 2025, I participated in the "Students for an Open Digital Governance" Hackathon, organized by the National Institute of Administration.
+During this event, the teams were tasked with identifying solutions to improve digital governance and exploring ways to implement these solutions. The proposals were presented to a representative from the Romanian Government and later forwarded to the entire SGG team.</p>
+      </div>
+    </div>
+  </div>
+
+  <button class="prev" onclick="changeSlide(-1)">❮</button>
+  <button class="next" onclick="changeSlide(1)">❯</button>
+</div>
+        
+
+
+    <div id="spatiugol"></div>
+<section class="language-skills" id="language-skills">
+  <div id ="languages2">Language Skills</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Language</th>
+        <th>Speaking</th>
+        <th>Writing</th>
+        <th>Listening</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>English</td>
+        <td>C2</td>
+        <td>C1</td>
+        <td>C1</td>
+      </tr>
+      <tr>
+        <td>French</td>
+        <td>A1</td>
+        <td>A1</td>
+        <td>A1</td>
+      </tr>
+      <tr>
+        <td>Spanish</td>
+        <td>A1</td>
+        <td>A1</td>
+        <td>A1</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+    <div id="spatiugol"></div>
+    <div id="acinceasectiune">
+      <div id="diplomas2">Certificates</div>
+      <div id="certificari2">
+        <div id="certificare">
+            <div id="numecertificare">Junior Programmer</div>
+            <img src="{% static 'minister.png' %}" id="certificat" onclick="openFullscreen(this)">
+        </div>
+        <div id="certificare">
+            <div id="numecertificare">Certified Python Developer</div>
+            <img src="{% static 'certificatlink.png' %}" id="certificat" onclick="openFullscreen(this)">
+        </div>
+        <div id="certificare">
+            <div id="numecertificare">First Certificate in English - B2</div>
+            <img src="{% static 'cambridge.png' %}" id="certificat" onclick="openFullscreen(this)">
+        </div>
+      </div>
+    </div>
 </body>
-{% endblock main %}
 </html>
+<script>
+
+function scrolldivdespremine() {
+            window
+                .scrollTo(0, findPosition(document.getElementById("pozasidescriere")));
+        }
+        function findPosition(obj) {
+            let currenttop = 0;
+            if (obj.offsetParent) {
+                do {
+                    currenttop += obj.offsetTop;
+                } while ((obj = obj.offsetParent));
+                return [currenttop];
+            }
+        }
+
+        function scrolldiveducatie() {
+            window
+                .scrollTo(0, findPosition(document.getElementById("adouasectiune")));
+        }
+        function findPosition(obj) {
+            let currenttop = 0;
+            if (obj.offsetParent) {
+                do {
+                    currenttop += obj.offsetTop;
+                } while ((obj = obj.offsetParent));
+                return [currenttop];
+            }
+        }
+
+        function scrolldivprofesional() {
+            window
+                .scrollTo(0, findPosition(document.getElementById("atreiasectiune")));
+        }
+        function findPosition(obj) {
+            let currenttop = 0;
+            if (obj.offsetParent) {
+                do {
+                    currenttop += obj.offsetTop;
+                } while ((obj = obj.offsetParent));
+                return [currenttop];
+            }
+        }
+
+        function scrolldivactivitati() {
+            window
+                .scrollTo(0, findPosition(document.getElementById("activitati2")));
+        }
+        function findPosition(obj) {
+            let currenttop = 0;
+            if (obj.offsetParent) {
+                do {
+                    currenttop += obj.offsetTop;
+                } while ((obj = obj.offsetParent));
+                return [currenttop];
+            }
+        }
+
+        function scrollogo() {
+            window
+                .scrollTo(0, findPosition(document.getElementById("primasectiune")));
+        }
+        function findPosition(obj) {
+            let currenttop = 0;
+            if (obj.offsetParent) {
+                do {
+                    currenttop += obj.offsetTop;
+                } while ((obj = obj.offsetParent));
+                return [currenttop];
+            }
+        }
+
+        function scrolldivlanguage() {
+            window
+                .scrollTo(0, findPosition(document.getElementById("language-skills")));
+        }
+        function findPosition(obj) {
+            let currenttop = 0;
+            if (obj.offsetParent) {
+                do {
+                    currenttop += obj.offsetTop;
+                } while ((obj = obj.offsetParent));
+                return [currenttop];
+            }
+        }
+
+        function scrolldivcertificari() {
+            window
+                .scrollTo(0, findPosition(document.getElementById("acinceasectiune")));
+        }
+        function findPosition(obj) {
+            let currenttop = 0;
+            if (obj.offsetParent) {
+                do {
+                    currenttop += obj.offsetTop;
+                } while ((obj = obj.offsetParent));
+                return [currenttop];
+            }
+        }
+
+    function togglePopup(button) {
+        const popup = button.previousElementSibling;
+        popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+    }
+
+    let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    currentSlide = (index + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }
+
+  function changeSlide(step) {
+    showSlide(currentSlide + step);
+  }
+
+</script>
+{% endblock main %}

@@ -1,0 +1,216 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{background-image:url("{% static 'background45.png' %}");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;}
+    #divdesus{background-color: rgb(24, 24, 122); 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly}
+    #nrtelefon {
+    font-size: large;
+    align-content: center;
+    color: white;
+    }
+
+    #email {
+    margin-left: 9.5cm;
+    }
+
+    #barasectiuni {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 1cm;
+        background-color: rgb(29, 28, 28);
+    }
+
+    #despremine,
+    #educatie,
+    #profesional,
+    #alteactivitati,
+    #certificari,
+    #language,
+    #skills {
+        color: white;
+        width: 23%;
+        text-align: center;
+        padding-top: 9px;
+    }
+
+    footer {
+        background-color: rgb(24, 24, 122);
+        width: 100%;
+        height: 2cm;
+        margin: 0%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: medium;
+        padding: 0rem;
+    }
+
+    #despremine:hover,
+    #educatie:hover,
+    #profesional:hover,
+    #alteactivitati:hover,
+    #language:hover,
+    #certificari:hover {
+        background-color: white;
+        color: black;
+    }
+
+    #opentowork {
+        color: white;
+        align-self: center;
+    }
+
+    header {
+        width: 100%;
+    }
+
+    .open-button {
+        background-color: rgb(24, 24, 122);
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        position: fixed;
+        bottom: 23px;
+        right: 28px;
+        width: 250px;
+        z-index: 1000;
+    }
+
+    .form-popup {
+        display: none;
+        position: fixed;
+        bottom: 23px;
+        right: 15px;
+        border: 3px solid #f1f1f1;
+        z-index: 9;
+    }
+
+    .form-container {
+        max-width: 20cm;
+        padding: 10px;
+        background-color: white;
+    }
+
+    .form-container input,
+    #textarea {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+    }
+
+    .form-container input:focus,
+    #textarea:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+
+    .form-container .btn {
+        background-color: rgb(24, 24, 122);
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 10px;
+        opacity: 0.8;
+    }
+
+    .form-container .btn:hover,
+    .open-button:hover {
+        opacity: 1;
+    }
+
+</style>
+<body>
+    <header>
+    <div id="divdesus">
+        <div id="nrtelefon">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <a href="https://www.facebook.com/share/169B2LtZHo/"  style="color: white; margin-right: 10px;"  class="fa fa-facebook"></a>
+            <a href="https://www.linkedin.com/in/robert-ra%C8%9B%C4%83-2229a8270?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" style="color: white; margin-right: 10px;" class="fa fa-linkedin"></a>
+        </div>
+        <a href="{% url 'paginaefectiva_url' %}"><img src="{% static 'logo1.png' %}" style="height: 2cm;"></a>
+        <div id="opentowork">#OpenToWork</div>
+        <button class="open-button" onclick="openForm()">Leave me a message or an offer</button>
+    </div>
+    <div id="barasectiuni">
+        <div id="despremine" onclick="scrolldivdespremine()">About Me</div>
+        <div id="educatie" onclick="scrolldiveducatie()">Studies</div>
+        <div id="profesional" onclick="scrolldivprofesional()">Work Experience</div>
+        <div id="alteactivitati" onclick="scrolldivactivitati()">Other Activities and Hobbies</div>
+        <div id="language" onclick="scrolldivlanguage()">Language Skills</div>
+        <div id="certificari" onclick="scrolldivcertificari()">Certificates</div>
+        <div class="form-popup" id="myForm">
+            <form action="mesaj-trimis" method="POST" class="form-container">
+              <h1>Leave me a message or an offer</h1>
+                
+                {% csrf_token %}
+                {{ form.email.label_tag }} {{ form.email }}
+                <label for="mesaj">Message</label> {{ form.mesaj }}
+                <input type="submit" value="Send" class ="btn">
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+          </div>
+    </div>
+    </header>
+    <main>{% block main %}{% endblock main %}</main>
+    <footer>© Robert Rață 2025. All rights reserved.</footer>
+</body>
+<script>
+    function openFullscreen(img) {
+            if (img.requestFullscreen) {
+                img.requestFullscreen();
+            } else if (img.mozRequestFullScreen) { // Firefox
+                img.mozRequestFullScreen();
+            } else if (img.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                img.webkitRequestFullscreen();
+            } else if (img.msRequestFullscreen) { // IE/Edge
+                img.msRequestFullscreen();
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, { threshold: 0.2 }); // Adjust threshold for earlier/later activation
+
+    document.querySelectorAll(".fade-in-right").forEach(div => {
+        observer.observe(div);
+    });
+    });
+
+    function openForm() {
+    document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+    }
+</script>
+</html>
